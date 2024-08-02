@@ -13,16 +13,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 io.on('connection', (socket) => {
   console.log('New client connected');
 
-  socket.on('offer', (data) => {
-    socket.broadcast.emit('offer', data);
+  socket.on('offer', (offer) => {
+    socket.broadcast.emit('offer', offer);
   });
 
-  socket.on('answer', (data) => {
-    socket.broadcast.emit('answer', data);
+  socket.on('answer', (answer) => {
+    socket.broadcast.emit('answer', answer);
   });
 
-  socket.on('candidate', (data) => {
-    socket.broadcast.emit('candidate', data);
+  socket.on('candidate', (candidate) => {
+    socket.broadcast.emit('candidate', candidate);
   });
 
   socket.on('disconnect', () => {
